@@ -12,7 +12,7 @@ api.login = (User) => (req, res) => {
       user.comparePassword(req.body.password, (error, result) => {
         if (result && !error) {
           const token = jwt.sign({user}, config.secret);
-          res.json({ success: true, message: 'Token granted', token });
+          res.json({ success: true, message: 'Token granted', token,  user});
         } else {
           res.status(401).send({ success: false, message: 'Authentication failed. Wrong password' });
         }

@@ -18,7 +18,7 @@ app.use(passport.initialize());
 
 app.set('kanbansecret', config.secret);
 
-consing({ cwd: 'services' })
+consing()
         .include('KanbanAPI/app/setup')
         .then('KanbanAPI/app/api')
         .then('KanbanAPI/app/routes')

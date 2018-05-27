@@ -1,6 +1,7 @@
 <template>
   <v-layout>
     <app-header></app-header>
+    14
   </v-layout>
 </template>
 
@@ -14,12 +15,9 @@ export default {
     return {
 
     }
-  },
-  mounted: function() {
-    this.$store.dispatch('getProjects', {context: this, user_id: this.$cookie.get('user_id')});
   }
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
 </style>

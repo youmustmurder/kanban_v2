@@ -27,10 +27,10 @@
         </v-form>
       </div>
     </v-flex>
-    <v-snackbar timeout="6000"
+    <v-snackbar :timeout="6000"
                 bottom="bottom"
                 color="red lighten-1"
-                v-model="scackbar">
+                v-model="snackbar">
       {{ message }}
     </v-snackbar>
   </v-layout>
@@ -48,7 +48,7 @@ export default {
       },
       validLogin: false,
       loginPasswordVisible: false,
-      scackbar: false,
+      snackbar: false,
       loginRules: [
         v => !!v || 'Логин обязательн'
       ],

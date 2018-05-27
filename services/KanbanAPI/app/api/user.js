@@ -11,9 +11,9 @@ api.setup = (User) => (req, res) => {
     funct: 'fullstack developar'
   });
   admin.save(error => {
-    if (error) throw errror;
+    if (error) throw error;
     res.json( {success: true} );
-  })
+  });
 }
 
 api.signup = (User) => (req, res) => {
@@ -33,8 +33,7 @@ api.signup = (User) => (req, res) => {
   }
 }
 
-api.getUsers = (User, KanbanToken) => (req, res) => {
-  const token = KanbanToken;
+api.getUsers = (User, token) => (req, res) => {
   if (token) {
     User.find({}, (error, user) => {
       if (error) return error;

@@ -7,6 +7,11 @@ import authentication from '@/components/pages/authentication/authentication'
 import * as auth from '@/components/pages/authentication'
 
 import home from '@/components/pages/home'
+import project from '@/components/pages/project'
+
+import header from '@/components/common/header'
+
+Vue.component('app-header', header)
 
 const router = new Router({
 	routes: [
@@ -14,7 +19,8 @@ const router = new Router({
 			path: '/',
 			name: 'Home',
 			components: {
-				default: home
+				default: home,
+        header: header
 			},
       meta: {
         requiredAuth: true
@@ -24,6 +30,17 @@ const router = new Router({
       path: '/login',
       name: 'authentication',
       component: authentication
+    },
+    {
+      path: '/project/:project_id',
+      name: 'project',
+      components: {
+        default: project,
+        header: header
+      },
+      meta: {
+        requiredAuth: true
+      }
     }
 	]
 })

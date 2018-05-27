@@ -1,11 +1,11 @@
 const PassportJwt = require('passport-jwt'),
 			JwtStrategy = require('passport-jwt').Strategy,
 			ExtractJwt = require('passport-jwt').ExtractJwt,
-			model = require('./index.js'),
+			models = require('@Kanban/app/setup'),
 			config = require("@config");
 
 module.exports = (passport) => {
-	const User = model.User;
+	const User = models.User;
 	const parametrs = {
 		secretOrKey: config.secret,
 		jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
