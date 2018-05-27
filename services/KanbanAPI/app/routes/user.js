@@ -8,4 +8,6 @@ module.exports = (app) => {
 			.get(passport.authenticate('jwt', config.session), api.getUsers(model.User, app.get('kanbansecret')));
 	app.route('/api/signup')
 			.post(api.signup(model.User));
+	app.route('/api/setup')
+			.get(api.setup(model.User));
 }

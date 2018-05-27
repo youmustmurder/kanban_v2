@@ -2,6 +2,20 @@ const mongoose = require('mongoose');
 
 const api = {};
 
+api.setup = (User) => (req, res) => {
+  const admin = new User({
+    username: 'admin',
+    password: 'admin',
+    firstname: 'Slava',
+    lastname: 'Ustinov',
+    funct: 'fullstack developar'
+  });
+  admin.save(error => {
+    if (error) throw errror;
+    res.json( {success: true} );
+  })
+}
+
 api.signup = (User) => (req, res) => {
   if (!req.body.username || !req.body.password || !req.body.firstname || !req.body.lastname) res.json({ success: false, message: 'Please, pass data' })
   else {
