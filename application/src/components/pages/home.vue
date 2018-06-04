@@ -14,9 +14,6 @@ export default {
     return {
 
     }
-  },
-  mounted: function() {
-    this.$store.dispatch('getProjects', {context: this, user_id: this.$cookie.get('user_id')});
   }
 }
 </script>

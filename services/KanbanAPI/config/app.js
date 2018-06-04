@@ -11,7 +11,7 @@ const express = require('express'),
       database = require('./database')(mongoose, config);
 
 app.use(express.static('.'));
-// app.use(bodyParser.urlencoded({ extendend: true }));
+app.use(bodyParser.urlencoded({ extendend: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(passport.initialize());

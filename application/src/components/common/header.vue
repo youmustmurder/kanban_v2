@@ -54,6 +54,9 @@ export default {
     goProject(projectId) {
       this.$router.push({ name: 'project', params: { project_id: projectId } });
     }
+  },
+  mounted: function() {
+    this.$store.dispatch('getProjects', {context: this, user_id: this.$cookie.get('user_id')});
   }
 }
 </script>
