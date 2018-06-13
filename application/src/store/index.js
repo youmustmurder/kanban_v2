@@ -16,14 +16,15 @@ export default new Vuex.Store({
     currentProject: {},
     currentList: [],
     currentTask: {task: '', list_id: ''},
+    warning: false
   },
   mutations: {
-    editActiveTaskDialog (state, { list_id, task }) {
+    editActiveTaskDialog (state) {
       state.activeTaskDialog = !state.activeTaskDialog;
-      if (task!=undefined && list_id!=undefined) {
-        state.currentTask.task = task;
-        state.currentTask.list_id = list_id;
-      }
+    },
+    setCurrentTask(state, { list_id, task }) {
+      state.currentTask.task = task;
+      state.currentTask.list_id = list_id;
     },
     setProjects(state, { list }) {
       state.projects = list;
@@ -34,6 +35,9 @@ export default new Vuex.Store({
         description: list.description
       };
       state.currentList = list.list;
+    },
+    setWarning(state) {
+      state.warning = !state.warning;
     }
   },
   actions: {
@@ -44,7 +48,7 @@ export default new Vuex.Store({
       }).then((data) => {
         commit('setProjects', { list: data.data.project} );
       }).catch(error => {
-        console.log(error);
+        commit('setWarning');
       });
     },
     loadProject({ commit }, data) {
@@ -53,7 +57,7 @@ export default new Vuex.Store({
       }).then((data) => {
         commit('setCurrentProjct', { list: data.data.project });
       }).catch(error => {
-        console.log(error);
+        commit('setWarning');
       });
     }
   }

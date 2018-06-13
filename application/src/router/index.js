@@ -6,10 +6,10 @@ Vue.use(Router)
 import authentication from '@/components/pages/authentication/authentication'
 import * as auth from '@/components/pages/authentication'
 
-import home from '@/components/pages/home'
-import project from '@/components/pages/project/project'
+const home = () => import('@/components/pages/home')
+const project = () => import('@/components/pages/project/project')
 
-import header from '@/components/common/header'
+const header = () => import('@/components/common/header')
 
 Vue.component('app-header', header)
 

@@ -26,8 +26,8 @@ module.exports = (app) => {
 	app.route('/api/task_list')
 						.post(passport.authenticate('jwt', config.session), api.addList(model.Project, app.get('kanbansecret')));
 
-	app.route('/api/task')
-						.post(passport.authenticate('jwt', config.session), api.addTask(model.Project, app.get('kanbansecret')));
+	app.route('/api/add_task')
+						.post(passport.authenticate('jwt', config.session), api.addTask(model.Project, model.Task, app.get('kanbansecret')));
 
 	app.route('/api/save_task')
 						.post(passport.authenticate('jwt', config.session), api.saveTask(model.Project, model.Task, app.get('kanbansecret')));

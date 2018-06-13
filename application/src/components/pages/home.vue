@@ -1,6 +1,11 @@
 <template>
   <v-layout>
     <app-header></app-header>
+    <v-snackbar v-model="warningServer"
+                top
+                color="red">
+      Проблемы с сервером
+    </v-snackbar>
   </v-layout>
 </template>
 
@@ -14,7 +19,12 @@ export default {
     return {
 
     }
-  }
+  },
+  methods: {
+    warningServer() {
+      return this.$store.warning;
+    }
+  },
 }
 </script>
 

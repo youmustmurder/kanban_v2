@@ -37,7 +37,8 @@ export default {
   },
   methods: {
     editTask(task) {
-      this.$store.commit('editActiveTaskDialog', { list_id: this.list_id, task: task });
+      this.$store.commit('editActiveTaskDialog');
+      this.$store.commit('setCurrentTask', { list_id: this.list_id, task: task });
     }
   },
   mounted: function() {

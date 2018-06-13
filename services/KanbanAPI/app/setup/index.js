@@ -1,6 +1,8 @@
 const mongoose = require('mongoose'),
       UserModel = require('@KanbanModels/user'),
-      ProjctModel = require('@KanbanModels/project');
+      ProjctModel = require('@KanbanModels/project'),
+      TaskModel = require('@KanbanModels/task'),
+      ListModel = require('@KanbanModels/list');
 
 const models = {
   User: mongoose.model('User'),
