@@ -10,4 +10,6 @@ module.exports = (app) => {
 			.post(api.signup(model.User));
 	app.route('/api/setup')
 			.get(api.setup(model.User));
+	app.route('/api/set_team')
+						.post(passport.authenticate('jwt', config.session), api.setTeam(model.User, app.get('kanbansecret')));
 }

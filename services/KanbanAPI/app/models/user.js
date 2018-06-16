@@ -22,6 +22,10 @@ const Schema = mongoose.Schema({
   func: {
     type: String,
     required: false
+  },
+  team: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'team'
   }
 });
 

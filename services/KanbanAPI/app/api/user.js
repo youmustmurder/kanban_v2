@@ -33,6 +33,13 @@ api.signup = (User) => (req, res) => {
   }
 }
 
+api.setTeam = (User) => (req, res) => {
+  User.update(req.body.userId, { $set: { team: req.body.teamId } }, (error) => {
+    if (error) return res.status(200).json({ success: false, message: message });
+    res.status(200).json({ success: true });
+  });
+}
+
 api.getUsers = (User, token) => (req, res) => {
   if (token) {
     User.find({}, (error, user) => {

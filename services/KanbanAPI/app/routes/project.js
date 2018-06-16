@@ -3,7 +3,7 @@ const model = require('@Kanban/app/setup'),
 			config = require('@config');
 
 module.exports = (app) => {
-	const api = app.KanbanAPI.app.api.project;
+	const api = app.KanbanAPI.app.api.project.project;
 
 	app.use('/api/', (req, res, next) => {
 		if (app.get('kanbansecret')) {
@@ -23,12 +23,4 @@ module.exports = (app) => {
 	app.route('/api/project/:id')
 						.get(passport.authenticate('jwt', config.session), api.getProject(model.Project, app.get('kanbansecret')));
 
-	app.route('/api/task_list')
-						.post(passport.authenticate('jwt', config.session), api.addList(model.Project, app.get('kanbansecret')));
-
-	app.route('/api/add_task')
-						.post(passport.authenticate('jwt', config.session), api.addTask(model.Project, model.Task, app.get('kanbansecret')));
-
-	app.route('/api/save_task')
-						.post(passport.authenticate('jwt', config.session), api.saveTask(model.Project, model.Task, app.get('kanbansecret')));
 }
